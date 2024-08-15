@@ -171,10 +171,18 @@ class _MyHomePageState extends State<MyHomePage> {
 class ItemPonto extends StatelessWidget {
   const ItemPonto(this.ponto, {super.key});
   final DateTime ponto;
+
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text("${ponto.hour}:${ponto.minute.toString().padLeft(2, '0')}"),
+    return Container(
+      margin: const EdgeInsets.all(4.0),
+      height: MediaQuery.sizeOf(context).height * 0.1,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: const Color.fromRGBO(124, 175, 196, 1),
+      ),
+      alignment: Alignment.center,
+      child: Text("${ponto.hour}:${ponto.minute.toString().padLeft(2, '0')}", style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
     );
   }
 }
