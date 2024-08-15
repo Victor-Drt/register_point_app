@@ -51,6 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String formatarDuracao(Duration duracao) {
+      int horas = duracao.inHours;
+      int minutos =
+          duracao.inMinutes.remainder(60); // Obtém os minutos restantes
+      return '${horas.toString().padLeft(2, '0')}:${minutos.toString().padLeft(2, '0')}';
+    }
+
     Future<void> _showMyDialog() async {
       return showDialog<void>(
         context: context,
@@ -61,8 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  const Text('Detalhes'),
-                  Text('Você fez: ${diferenca - Duration(hours: 1)}'),
+                  Text('Marcações: ${pontos.length}'),
+                  Text('Horas no Trabalho: ${formatarDuracao(diferenca)}'),
+                  Text(
+                      'Total em horas (- 1h de almoço): ${formatarDuracao(diferenca - Duration(hours: 1))}'),
                 ],
               ),
             ),
@@ -182,7 +191,9 @@ class ItemPonto extends StatelessWidget {
         color: const Color.fromRGBO(124, 175, 196, 1),
       ),
       alignment: Alignment.center,
-      child: Text("${ponto.hour}:${ponto.minute.toString().padLeft(2, '0')}", style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+      child: Text("${ponto.hour}:${ponto.minute.toString().padLeft(2, '0')}",
+          style: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
     );
   }
 }
