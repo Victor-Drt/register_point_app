@@ -1,0 +1,50 @@
+# Flutter/Dart/Pub related
+**/build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+.idea/
+.vscode/
+android/.gradle/
+android/.idea/
+android/local.properties
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+web/.dart_tool/
+web/build/
+*.iml
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+
+# VS Code related
+.vscode/
+
+# MacOS related files
+.DS_Store
+
+# Windows related files
+Thumbs.db
+
+# Linux related files
+.idea/
+
+# Symbolic links
+.symlinks/
+
+# JetBrains
+*.ipr
+*.iml
+*.iws
+.idea/
+
+# Generated files
+coverage/
